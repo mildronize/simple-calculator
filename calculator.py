@@ -6,27 +6,49 @@
 # 2
 # 2+2
 # 4
+# 2-2
+# 0
 
-# function -- split with '+'
-def split_by_plus(string):
-    return string.split("+")
+class Calculator():
+    def __init__(self):
+        print("Starting calculator.. ")
+        self.operator = None
 
-def convert_list_string_to_int(list_string):
+    # function -- split with '+'
+    def split_by_plus(self, string):
+        return string.split("+")
 
-    return [
-        int(list_string[0]),
-        int(list_string[1])
-        ]
+    def split_by_minus(self, string):
+        return string.split("-")
 
-# function -- convert to integer
-def calculate_list_int(list_int):
-    return list_int[0] + list_int[1]
+    def convert_list_string_to_int(self, list_string):
 
-def calculate(string):
-    a = split_by_plus(string)
-    b = convert_list_string_to_int(a)
-    return calculate_list_int(b)
+        return [
+            int(list_string[0]),
+            int(list_string[1])
+            ]
+
+    # function -- convert to integer
+    def calculate_list_int(self, list_int):
+        if self.operator == "+":
+            return list_int[0] + list_int[1]
+        elif self.operator == "-":
+            return list_int[0] - list_int[1]
+        return None
+
+    def define_operator(self, string):
+        if "+" in string:
+            self.operator = "+"
+        elif "-" in string:
+            self.operator = "-"
+        return self.operator
+
+    def calculate(self, string):
+
+        split_result = self.split_by_plus(string)
+        convert_result = self.convert_list_string_to_int(split_result)
+        return self.calculate_list_int(convert_result)
 
 if __name__ == '__main__':
     input_data = input("Enter your expression: ")
-    print(calculate(input_data))
+    print(Calculator().calculate(input_data))

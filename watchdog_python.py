@@ -24,6 +24,7 @@ def when_file_changed(filename):
         "--cover-package={package} -v {filename}".format(**locals())
     # -v verbose show a list of tests
     cmd = nose + " " + options
+    print(cmd)
     os.system(cmd)
 
 
