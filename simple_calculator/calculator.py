@@ -6,13 +6,14 @@
 # 2
 # 2+2
 # 4
-# 2-2
+#    2-2
 # 0
 
 class Calculator():
     def __init__(self):
         print("Starting calculator.. ")
         self.operator = None
+
 
     # function -- split with '+'
     def split_by_plus(self, string):

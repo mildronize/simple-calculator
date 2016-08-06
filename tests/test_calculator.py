@@ -1,6 +1,6 @@
 import unittest
 
-from calculator import Calculator
+from simple_calculator.calculator import Calculator
 
 # class AddTest(unittest.TestCase):
 #
@@ -11,7 +11,8 @@ from calculator import Calculator
 class SplitByPlusTest(unittest.TestCase):
 
     def split_1_plus_1_should_be_list_of_1_1_test(self):
-        self.assertEqual( Calculator().split_by_plus("1+1"), ['1','1'])
+        assert Calculator().split_by_plus("1+1") == ['1','1']
+        # self.assertEqual( Calculator().split_by_plus("1+1"), ['1','1'])
 
     def split_3_plus_5_should_be_list_of_3_5_test(self):
         self.assertEqual( Calculator().split_by_plus("3+5"), ['3','5'])
