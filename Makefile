@@ -34,8 +34,8 @@ help:
 create-venv: ## Create a virtual environment for python
 	python -m venv venv
 
-develop:
+develop: ## Setup develop environment
 	python setup.py develop
 
-test:
+test: ## Test all codes with coverage
 	nosetests --rednose --with-coverage --cover-erase --cover-package=$(PACKAGE_NAME) -v tests/*
