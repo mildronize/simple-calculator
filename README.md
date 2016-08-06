@@ -1,1 +1,1 @@
-# Python project with Script template
+# Simple Calculator
