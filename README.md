@@ -1,5 +1,7 @@
 # Simple Calculator
 
+The project structure is inspired by [cookiecutter-pypackage](https://github.com/audreyr/cookiecutter-pypackage)
+
 ## Setup this project
 1. Create a virtual environment: `make create-venv`
 2. Activate the virtual environment
