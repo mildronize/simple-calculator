@@ -46,9 +46,16 @@ class Calculator():
 
     def calculate(self, string):
 
-        split_result = self.split_by_plus(string)
-        convert_result = self.convert_list_string_to_int(split_result)
-        return self.calculate_list_int(convert_result)
+        # split_result = self.split_by_plus(string)
+        oper = self.define_operator(string)
+        if oper is not None:
+            if oper == '+':
+                split_result = self.split_by_plus(string)
+            elif oper == '-':
+                split_result = self.split_by_minus(string)
+
+            convert_result = self.convert_list_string_to_int(split_result)
+            return self.calculate_list_int(convert_result)
 
 if __name__ == '__main__':
     input_data = input("Enter your expression: ")
