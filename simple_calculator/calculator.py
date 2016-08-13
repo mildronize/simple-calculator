@@ -10,17 +10,17 @@
 # 0
 
 class Calculator():
-    def __init__(self):
+    def __init__(self, expression):
         print("Starting calculator.. ")
-        self.operator = None
-
+        self.expression = expression
+        self.operator = self.define_operator()
 
     # function -- split with '+'
-    def split_by_plus(self, string):
-        return string.split("+")
+    def split_by_plus(self):
+        return self.expression.split("+")
 
-    def split_by_minus(self, string):
-        return string.split("-")
+    def split_by_minus(self):
+        return self.expression.split("-")
 
     def convert_list_string_to_int(self, list_string):
 
@@ -37,26 +37,27 @@ class Calculator():
             return list_int[0] - list_int[1]
         return None
 
-    def define_operator(self, string):
-        if "+" in string:
+    def define_operator(self):
+        if "+" in self.expression:
             self.operator = "+"
-        elif "-" in string:
+        elif "-" in self.expression:
             self.operator = "-"
+        else:
+            self.operator = None
         return self.operator
 
-    def calculate(self, string):
-
+    def calculate(self):
         # split_result = self.split_by_plus(string)
-        oper = self.define_operator(string)
-        if oper is not None:
-            if oper == '+':
-                split_result = self.split_by_plus(string)
-            elif oper == '-':
-                split_result = self.split_by_minus(string)
+        # oper = self.define_operator(string)
+        if self.operator is not None:
+            if self.operator == '+':
+                split_result = self.split_by_plus()
+            elif self.operator == '-':
+                split_result = self.split_by_minus()
 
             convert_result = self.convert_list_string_to_int(split_result)
             return self.calculate_list_int(convert_result)
 
 if __name__ == '__main__':
     input_data = input("Enter your expression: ")
-    print(Calculator().calculate(input_data))
+    print(Calculator(input_data).calculate())
