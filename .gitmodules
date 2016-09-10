@@ -1,0 +1,3 @@
+[submodule ".pywatch4test"]
+	path = .pywatch4test
+	url = https://github.com/mildronize/pywatch4test.git
